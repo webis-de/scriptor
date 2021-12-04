@@ -2,7 +2,7 @@
 Web user simulation and archiving framework.
 
 [[code](https://github.com/webis-de/scriptor)]
-[[node](https://www.npmjs.com/package/webis-scriptor)]
+[[node](https://www.npmjs.com/package/webis-de/scriptor)]
 [[docker](https://github.com/webis-de/scriptor/pkgs/container/scriptor)]
 
 ## Quickstart 
