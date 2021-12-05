@@ -5,7 +5,8 @@
 const process = require('process');
 const scriptor = require('../lib/index.js');
 
-const options = scriptor.cli.program.parse(process.argv);
+const options = scriptor.cli.program.parse(process.argv).opts();
+scriptor.log.info({ options: options }, "scriptor-run.options");
 
 const scriptDirectory = scriptor.cli.getScriptDirectory(options);
 const inputDirectory = scriptor.cli.getInputDirectory(options);
@@ -14,4 +15,3 @@ const runOptions = scriptor.cli.getRunOptions(options);
 
 scriptor.scripts.run(
   scriptDirectory, inputDirectory, outputDirectory, runOptions);
-

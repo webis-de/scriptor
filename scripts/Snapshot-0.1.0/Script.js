@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const path = require('path');
 
-const { AbstractScriptorScript, files, pages } = require('scriptor');
+const { AbstractScriptorScript, files, pages, log } = require('@webis-de/scriptor');
 
 const NAME = "Snapshot";
 const VERSION = "0.1.0";
@@ -20,11 +20,12 @@ module.exports = class extends AbstractScriptorScript {
     const browserContext = browserContexts[files.BROWSER_CONTEXT_DEFAULT];
 
     // Script options
-    const defaultScriptOptions = { SCRIPT_OPTIONS_VIEWPORT_ADJUST: {} };
+    const defaultScriptOptions = { viewportAdjust: {} };
     const requiredScriptOptions = [ SCRIPT_OPTION_URL ];
     const scriptOptions = files.readOptions(files.getExisting(
       files.SCRIPT_OPTIONS_FILE_NAME, [ scriptDirectory, inputDirectory ]),
       defaultScriptOptions, requiredScriptOptions);
+    log.info({options: scriptOptions}, "script.options");
 
     const url = scriptOptions[SCRIPT_OPTION_URL];
     const optionsViewportAdjust = scriptOptions[SCRIPT_OPTIONS_VIEWPORT_ADJUST];
@@ -39,7 +40,7 @@ module.exports = class extends AbstractScriptorScript {
     await page.waitForLoadState('networkidle');
 
     // Adapt viewport height to scroll height
-    await pages.adjustViewportSize(page, optionsViewportAdjust);
+    await pages.adjustViewportToPage(page, optionsViewportAdjust);
     await page.waitForTimeout(1000);
     await page.waitForLoadState('networkidle');
 
