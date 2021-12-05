@@ -15,16 +15,19 @@ export NODE_PATH=/usr/local/lib/node_modules/
 
 # run with configuration in input directory
 scriptor \
-  --script-directory scripts/ScrollDown \
-  --input-directory doc/example/scrollDownInput \
+  --script-directory scripts/Snapshot \
+  --input-directory doc/example/snapshot-input/ \
   --output-directory output
 
 # run with configuration from standard input
-cat doc/example/scrollDownInput/config.json \
+cat doc/example/snapshot-input/config.json \
   | scriptor \
-      --script-directory scripts/ScrollDown \
+      --script-directory scripts/Snapshot \
       --input-directory - \
       --output-directory output
+
+# run with docker TODO
+rm -rf output && mkdir output && sudo docker run --user $(id -u):$(id -g) -it --rm -v $PWD/output:/output -v $PWD/doc/example/snapshot-input:/input:ro -v $PWD/scripts/Snapshot:/script:ro scriptor --video 0.5
 ```
 
 ## CI
