@@ -1,6 +1,6 @@
 {
   "name": "@webis-de/scriptor",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Web user simulation and archiving framework",
   "main": "lib/index.js",
   "files": [ "bin", "lib" ],
