@@ -1,41 +1,53 @@
-# Webis Scriptor
+Webis Scriptor
+==============
 Web user simulation and archiving framework.
 
 [[code](https://github.com/webis-de/scriptor)]
 [[node](https://www.npmjs.com/package/webis-de/scriptor)]
 [[docker](https://github.com/webis-de/scriptor/pkgs/container/scriptor)]
 
-## Quickstart 
-Global installation
+
+Installation
+------------
+Make sure you have both [Docker](https://docs.docker.com/get-docker/) and a recent [NodeJS](https://nodejs.dev/learn/how-to-install-nodejs) installation. If you do not want to install NodeJS, you can still [run the Docker container directly](#run-without-nodejs).
 ```
+# install packages to run './bin/scriptor.js':
 npm install --only=production
-npm install -g # install of 'scriptor' into system path, may require sudo
 
-# adjust for your system, might already be set
+# install into system path to run 'scriptor', may require sudo or similar:
+npm install --global
+# if scriptor can not be found, set the node path (adjust to your system):
 export NODE_PATH=/usr/local/lib/node_modules/
+```
 
-# run with configuration in input directory
+
+Quickstart
+----------
+```
+# on unix, use sudo if you are not in the "docker" group
 scriptor \
-  --script-directory scripts/Snapshot \
-  --input-directory doc/example/snapshot-input/ \
+  --input doc/example/snapshot-input/ \
   --output-directory output
-
-# run with configuration from standard input
-cat doc/example/snapshot-input/config.json \
-  | scriptor \
-      --script-directory scripts/Snapshot \
-      --input-directory - \
-      --output-directory output
-
-# run with docker TODO
-sudo docker build -t scriptor .
-rm -rf output && mkdir output && sudo docker run --user $(id -u):$(id -g) -it --rm -v $PWD/output:/output -v $PWD/doc/example/snapshot-input:/input:ro -v $PWD/scripts/Snapshot:/script:ro scriptor --video 0.5
 ```
 
-## CI
-Update version (X.X.X) in `package.json`.
+
+Run without NodeJS
+------------------
+At the cost of reduced convenience, you can run scriptor with only a [Docker](https://docs.docker.com/get-docker/) installation:
 ```
-git tag vX.X.X
-git push origin vX.X.X
+docker run -it --rm \
+  --volume <script-directory>:/script:ro \
+  --volume <input-directory>:/input:ro \
+  --volume <output-directory>:/output \
+  ghcr.io/webis-de/scriptor:latest <parameters>
 ```
-Will automatically publish to npm and ghcr.
+- `<script/input/output-directory>` are the absolute paths to the respective directories
+  - The `<script-directory>` line can be omitted to run the [Snapshot script](scripts/Snapshot/Script.js)
+  - The `<input-directory>` line can be omitted depending on the script or when the config is set by `--input '{...}'`
+- `<parameters>` are additional parameters
+
+Get the help (but ignore `--script-directory` and `--output-directory`):
+```
+docker run -it --rm ghcr.io/webis-de/scriptor:latest --help
+```
+

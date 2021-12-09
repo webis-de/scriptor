@@ -4,7 +4,7 @@ base_command="$(dirname $0)/scriptor-run.js --script-directory /script --output-
 
 if [ -e /input ];then
   # input directory
-  eval ${base_command} --input-directory /input
+  eval ${base_command} --input /input
 else
   # no input directory
   eval ${base_command}
