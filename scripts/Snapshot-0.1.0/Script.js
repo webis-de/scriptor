@@ -26,6 +26,8 @@ module.exports = class extends AbstractScriptorScript {
       files.SCRIPT_OPTIONS_FILE_NAME, [ scriptDirectory, inputDirectory ]),
       defaultScriptOptions, requiredScriptOptions);
     log.info({options: scriptOptions}, "script.options");
+    fs.writeJsonSync( // document options
+      path.join(outputDirectory, files.SCRIPT_OPTIONS_FILE_NAME), scriptOptions);
 
     const url = scriptOptions[SCRIPT_OPTION_URL];
     const optionsViewportAdjust = scriptOptions[SCRIPT_OPTIONS_VIEWPORT_ADJUST];
@@ -46,6 +48,7 @@ module.exports = class extends AbstractScriptorScript {
 
     // Take snapshot
     await pages.takeSnapshot(page, optionsSnapshot);
+    return true;
   }
 };
 
