@@ -27,6 +27,7 @@ cat doc/example/snapshot-input/config.json \
       --output-directory output
 
 # run with docker TODO
+sudo docker build -t scriptor .
 rm -rf output && mkdir output && sudo docker run --user $(id -u):$(id -g) -it --rm -v $PWD/output:/output -v $PWD/doc/example/snapshot-input:/input:ro -v $PWD/scripts/Snapshot:/script:ro scriptor --video 0.5
 ```
 
