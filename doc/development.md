@@ -13,8 +13,7 @@ Continuous Integration
 ----------------------
 Update version (X.X.X) in `package.json`.
 ```
-git tag vX.X.X
-git push origin vX.X.X
+./bin/publish.sh
 ```
-Will automatically publish to npm and ghcr.
+Will automatically publish to [npm](https://www.npmjs.com/package/@webis-de/scriptor) and [ghcr](https://github.com/webis-de/scriptor/pkgs/container/scriptor).
 
