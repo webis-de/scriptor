@@ -7,7 +7,8 @@ const path = require('path');
 const process = require('process');
 const readline = require('readline');
 
-const { cli } = require('../lib/index.js');
+const cli = require('../lib/cli.js');
+const log = require('../lib/log.js');
 
 const options = cli.parse(docker = true)
 const scriptDirectory = cli.getScriptDirectory(options);

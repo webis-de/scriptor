@@ -11,9 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/webis-de/scriptor.git"
   },
-  "devDependencies": {
+  "dependencies": {
     "bunyan": "^1.8.15",
-    "fs-extra": "^10.0.0",
+    "commander": "^8.3.0",
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
     "playwright": "1.16.3"
   },
   "keywords": [

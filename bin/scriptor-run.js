@@ -2,7 +2,9 @@
 
 // Runs a Scriptor script.
 
-const { cli, log, scripts } = require('../lib/index.js');
+const cli = require('../lib/cli.js');
+const log = require('../lib/log.js');
+const scripts = require('../lib/scripts.js');
 
 ////////////////////////////////////////////////////////////////////////////////
 // MAIN

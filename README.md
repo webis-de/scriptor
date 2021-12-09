@@ -8,7 +8,8 @@ Web user simulation and archiving framework.
 ## Quickstart 
 Global installation
 ```
-npm install -g # may require sudo
+npm install --only=production
+npm install -g # install of 'scriptor' into system path, may require sudo
 
 # adjust for your system, might already be set
 export NODE_PATH=/usr/local/lib/node_modules/
