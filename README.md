@@ -40,6 +40,10 @@ scriptor --script-directory path/to/my/own/script --output-directory output3
 ```
 
 
+Log Viewer
+----------
+Scriptor uses [Bunyan](https://github.com/trentm/node-bunyan) for logging, which comes with a [tool](https://github.com/trentm/node-bunyan#cli-usage) for filtering and pretty-printing the logs.
+
 
 Run without NodeJS
 ------------------

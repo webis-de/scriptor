@@ -11,6 +11,9 @@ if [ $(git tag | grep "^v$version$" | wc -l) -ne 0 ];then
   exit 1
 fi
 
+npm i --package-lock-only
+git add -A
+git commit -m "version $version"
 git tag "v$version"
 git push origin "v$version"
 
