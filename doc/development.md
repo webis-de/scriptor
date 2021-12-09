@@ -1,11 +1,13 @@
 Webis Scriptor Development
 ==========================
 
-Local building
+Local development
 --------------
 ```
-docker build -t ghcr.io/webis-de/scriptor:latest .
+docker build -t ghcr.io/webis-de/scriptor:dev .
 ```
+Then use `-d dev` for `scriptor`
+
 
 Continuous Integration
 ----------------------
