@@ -14,6 +14,7 @@ fi
 npm i --package-lock-only
 git add -A
 git commit -m "version $version"
+git push
 git tag "v$version"
 git push origin "v$version"
 
