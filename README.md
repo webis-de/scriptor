@@ -29,7 +29,7 @@ Take a snapshot
 scriptor --input '{"url":"https://github.com/webis-de/scriptor"}' --output-directory output1
 ```
 
-Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/example/snapshot-input) for more configuration options (e.g., of the [browser](https://github.com/webis-de/scriptor/blob/main/doc/example/snapshot-input/browserContexts/default/browser.json))
+Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/example/snapshot-input) for more configuration options (e.g., configure the [browser](https://github.com/webis-de/scriptor/blob/main/doc/example/snapshot-input/browserContexts/default/browser.json) with [all options of Playwright](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context))
 ```
 scriptor --input doc/example/snapshot-input/ --output-directory output2
 ```
