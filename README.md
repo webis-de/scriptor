@@ -1,10 +1,13 @@
 Webis Scriptor
 ==============
 Web user simulation and archiving framework.
-
-[[code](https://github.com/webis-de/scriptor)]
-[[node](https://www.npmjs.com/package/@webis-de/scriptor)]
+[[source](https://github.com/webis-de/scriptor)]
+[[nodejs](https://www.npmjs.com/package/@webis-de/scriptor)]
 [[docker](https://github.com/webis-de/scriptor/pkgs/container/scriptor)]
+
+![latest version](https://img.shields.io/github/v/tag/webis-de/scriptor?label=latest&sort=semver)
+![license](https://img.shields.io/github/license/webis-de/scriptor)
+![playwright version](https://img.shields.io/github/package-json/dependency-version/webis-de/scriptor/dev/playwright)
 
 
 Installation
