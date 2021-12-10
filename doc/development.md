@@ -1,19 +1,22 @@
 Webis Scriptor Development
 ==========================
 
-Local development
---------------
+Local Development
+-----------------
 ```
 docker build -t ghcr.io/webis-de/scriptor:dev .
 ```
-Then use `-d dev` for `scriptor`
+Then use `-d dev` when running `scriptor`.
+
+
+Update Playwright
+-----------------
+Update in [package.json](https://github.com/webis-de/scriptor/blob/main/package.json) and the [Dockerfile](https://github.com/webis-de/scriptor/blob/main/Dockerfile#L1).
 
 
 Continuous Integration
 ----------------------
-Update version (X.X.X) in `package.json`.
+Update version in [package.json](https://github.com/webis-de/scriptor/blob/main/package.json).
 ```
 ./bin/publish.sh
 ```
-Will automatically publish to [npm](https://www.npmjs.com/package/@webis-de/scriptor) and [ghcr](https://github.com/webis-de/scriptor/pkgs/container/scriptor).
-
