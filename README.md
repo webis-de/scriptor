@@ -28,7 +28,7 @@ Quickstart
 Take a snapshot
 ```
 # on unix, use sudo if you are not in the "docker" group
-scriptor --input '{"url":"https://github.com/webis-de/scriptor"}' --output-directory output1
+scriptor --input "{\"url\":\"https://www.webis.de\"}" --output-directory output1
 ```
 
 Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/example/snapshot-input) for more configuration options (e.g., configure the [browser](https://github.com/webis-de/scriptor/blob/main/doc/example/snapshot-input/browserContexts/default/browser.json) with [all options of Playwright](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context))
@@ -36,10 +36,42 @@ Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/exam
 scriptor --input doc/example/snapshot-input/ --output-directory output2
 ```
 
-Replace the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js) with an own one. The 'script' directory must contain a Script.js that exports a class that extends [AbstractScriptorScript](https://github.com/webis-de/scriptor/blob/main/lib/AbstractScriptorScript.js).
+Replace the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js) with an own one (see [Developing Own Scripts](#developing-own-scripts)). The 'script' directory must contain a Script.js that exports a class that extends [AbstractScriptorScript](https://github.com/webis-de/scriptor/blob/main/lib/AbstractScriptorScript.js).
 ```
 scriptor --script-directory path/to/my/own/script --output-directory output3
 ```
+
+
+Output Directory Structure
+--------------------------
+```
+output/
+├─ browserContexts/
+|  └─ default/     # Shares the name of the browser context, see Developing Own Scripts
+|     ├─ trace/       # Playwright trace, see https://playwright.dev/docs/trace-viewer#viewing-the-trace
+|     ├─ userData/    # Browser files (cache, cookies, ...)
+|     ├─ video/       # Recorded videos if --video is set
+|     ├─ warcs/       # Recorded web archive collection with WARCs and indexes, see below
+|     ├─ archive.har  # Recorded web archive in HAR format
+|     └─ browser.json # Browser context options that have been used
+└─ scriptor.log    # TODO. Copy of the log from the Docker run (only if using the NodeJS executable)
+```
+The `warcs` directory is created using [pywb](https://github.com/webrecorder/pywb) and thus follows its [directory structure](https://pywb.readthedocs.io/en/latest/manual/configuring.html#directory-structure). Note that efforts exist to [standardize this structure](https://pywb.readthedocs.io/en/latest/manual/configuring.html#directory-structure): and they are looking for feedback!
+
+
+Developing Own Scripts
+----------------------
+TODO
+
+
+Replay
+------
+TODO
+
+
+Chaining
+--------
+TODO
 
 
 Log Viewer
@@ -59,11 +91,6 @@ docker run -it --rm \
 ```
 - `<script/input/output-directory>` are the absolute paths to the respective directories
   - The `<script-directory>` line can be omitted to run the [Snapshot script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js)
-  - The `<input-directory>` line can be omitted depending on the script or when the config is set by `--input '{...}'`
-- `<parameters>` are additional parameters
-
-Get the help (but ignore `--script-directory` and `--output-directory`):
-```
-docker run -it --rm ghcr.io/webis-de/scriptor:latest --help
-```
+  - The `<input-directory>` line can be omitted to not set `--input` or when the config is set by `--input "{...}"` in the `<parameters>`
+- `<parameters>` are additional options; see `docker run -it --rm ghcr.io/webis-de/scriptor:latest --help`
 

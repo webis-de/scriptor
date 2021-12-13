@@ -1,4 +1,4 @@
-ARG playwright=v1.16.3-focal
+ARG playwright=v1.17.1-focal
 
 # Playwright Docker documentation: https://playwright.dev/docs/docker/
 # Playwright tags: https://mcr.microsoft.com/v2/playwright/tags/list
@@ -12,7 +12,6 @@ RUN pip3 install pywb
 RUN mkdir /scriptor /output
 ENV NODE_PATH=/usr/lib/node_modules:/scriptor/node_modules
 COPY scripts/Snapshot /script
-VOLUME /script /output
 
 # Installing this package
 WORKDIR /scriptor
@@ -24,5 +23,5 @@ RUN npm install --global
 COPY lib /scriptor/lib
 
 # Entrypoint
-ENTRYPOINT ["./bin/entrypoint.sh"]
+ENTRYPOINT ["./bin/entrypoint.js"]
 

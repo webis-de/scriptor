@@ -10,7 +10,6 @@ const log = require('../lib/log.js');
 // MAIN
 ////////////////////////////////////////////////////////////////////////////////
 
-const forDocker = true;
-const options = cli.parse(forDocker);
+const options = cli.parse();
 docker.run(options);
 

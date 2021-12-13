@@ -10,11 +10,12 @@ const scripts = require('../lib/scripts.js');
 // MAIN
 ////////////////////////////////////////////////////////////////////////////////
 
-const options = cli.parse();
+const dockerEntrypoint = true;
+const options = cli.parse(dockerEntrypoint);
 log.info({ options: options }, "scriptor-run.options");
 
 const scriptDirectory = cli.getScriptDirectory(options);
-const inputDirectory = cli.getInputDirectory(options);
+const inputDirectory = cli.getInputDirectory(options, dockerEntrypoint);
 const outputDirectory = cli.getOutputDirectory(options);
 const runOptions = cli.getRunOptions(options);
 
