@@ -17,6 +17,7 @@
     "fs-extra": "^10.0.0"
   },
   "devDependencies": {
+    "compressing": "^1.5.1",
     "playwright": "1.17.1"
   },
   "keywords": [
