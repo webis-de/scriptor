@@ -9,9 +9,10 @@ Web user simulation and archiving framework.
 [![playwright version](https://img.shields.io/github/package-json/dependency-version/webis-de/scriptor/dev/playwright)](https://playwright.dev/)
 
 
+
 Installation
 ------------
-Make sure you have both [Docker](https://docs.docker.com/get-docker/) and a recent [NodeJS](https://nodejs.dev/learn/how-to-install-nodejs) installation. If you do not want to install NodeJS, you can also [run the Docker container directly](#run-without-nodejs).
+Make sure you have both [Docker](https://docs.docker.com/get-docker/) and a recent [NodeJS](https://nodejs.dev/learn/how-to-install-nodejs) installation. If you do not want to install NodeJS, you can also [run the Docker container directly](#running-without-nodejs).
 ```
 # install packages to run './bin/scriptor.js':
 npm install --only=production
@@ -21,6 +22,7 @@ npm install --global
 # if scriptor can not be found, set the node path (adjust to your system):
 export NODE_PATH=/usr/local/lib/node_modules/
 ```
+
 
 
 Quickstart
@@ -40,6 +42,7 @@ Replace the [default script](https://github.com/webis-de/scriptor/blob/main/scri
 ```
 scriptor --script-directory path/to/my/own/script --output-directory output3
 ```
+
 
 
 Output Directory Structure
@@ -62,38 +65,39 @@ The `warcs` directory is created using [pywb](https://github.com/webrecorder/pyw
 
 To view the `trace.zip`, see [the playwright docs](https://playwright.dev/docs/trace-viewer#viewing-the-trace) or just directly load it into the [progressive web app](https://trace.playwright.dev/).
 
+Scriptor uses [Bunyan](https://github.com/trentm/node-bunyan) for logging, which comes with a [tool](https://github.com/trentm/node-bunyan#cli-usage) for filtering and pretty-printing the logs. Once you have it installed (`npm install --global bunyan`), just add `| bunyan` after the scriptor command to pretty-print the logs. Or use it to pretty-print the `scriptor.log`.
+
+
 
 Developing Own Scripts
 ----------------------
 TODO
 
+
 ### files.js
 TODO
+
 
 ### pages.js
 TODO
 
-#### Snapshots
+**Snapshots**
 TODO
 
 
-Replay
-------
+### Chaining
 TODO
 
 
-Chaining
---------
+
+Running on Archives (Replay)
+----------------------------
 TODO
 
 
-Log Viewer
-----------
-Scriptor uses [Bunyan](https://github.com/trentm/node-bunyan) for logging, which comes with a [tool](https://github.com/trentm/node-bunyan#cli-usage) for filtering and pretty-printing the logs. Once you have it installed (`npm install --global bunyan`), just add `| bunyan` after the scriptor command to pretty-print the logs.
 
-
-Run without NodeJS
-------------------
+Running without NodeJS
+----------------------
 At the cost of reduced convenience (chaining, timeout, nicer interface), you can run scriptor with only a [Docker](https://docs.docker.com/get-docker/) installation:
 ```
 docker run -it --rm \
