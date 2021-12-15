@@ -28,7 +28,7 @@ Quickstart
 Take a snapshot
 ```
 # on unix, use sudo if you are not in the "docker" group
-scriptor --input "{\"url\":\"https://www.webis.de\"}" --output-directory output1
+scriptor --input "{\"url\":\"https://github.com/webis-de/scriptor\"}" --output-directory output1
 ```
 
 Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/example/snapshot-input) for more configuration options (e.g., configure the [browser](https://github.com/webis-de/scriptor/blob/main/doc/example/snapshot-input/browserContexts/default/browser.json) with [all options of Playwright](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context))
@@ -48,15 +48,17 @@ Output Directory Structure
 output/
 ├─ browserContexts/
 |  └─ default/     # Shares the name of the browser context, see Developing Own Scripts
-|     ├─ trace/       # Playwright trace, see https://playwright.dev/docs/trace-viewer#viewing-the-trace
 |     ├─ userData/    # Browser files (cache, cookies, ...)
 |     ├─ video/       # Recorded videos if --video is set
 |     ├─ warcs/       # Recorded web archive collection with WARCs and indexes, see below
 |     ├─ archive.har  # Recorded web archive in HAR format
-|     └─ browser.json # Browser context options that have been used
-└─ scriptor.log    # TODO. Copy of the log from the Docker run (only if using the NodeJS executable)
+|     ├─ browser.json # Browser context options that have been used
+|     └─ trace.zip    # Playwright trace
+└─ scriptor.log    # Container log
 ```
 The `warcs` directory is created using [pywb](https://github.com/webrecorder/pywb) and thus follows its [directory structure](https://pywb.readthedocs.io/en/latest/manual/configuring.html#directory-structure). Note that efforts exist to [standardize this structure](https://pywb.readthedocs.io/en/latest/manual/configuring.html#directory-structure): and they are looking for feedback!
+
+To view the trace, see [the playwright docs](https://playwright.dev/docs/trace-viewer#viewing-the-trace) and the [progressive web app](https://trace.playwright.dev/).
 
 
 Developing Own Scripts
