@@ -58,7 +58,7 @@ output/
 ```
 The `warcs` directory is created using [pywb](https://github.com/webrecorder/pywb) and thus follows its [directory structure](https://pywb.readthedocs.io/en/latest/manual/configuring.html#directory-structure). Note that efforts exist to [standardize this structure](https://pywb.readthedocs.io/en/latest/manual/configuring.html#directory-structure): and they are looking for feedback!
 
-To view the trace, see [the playwright docs](https://playwright.dev/docs/trace-viewer#viewing-the-trace) and the [progressive web app](https://trace.playwright.dev/).
+To view the trace, see [the playwright docs](https://playwright.dev/docs/trace-viewer#viewing-the-trace) or just directly load it into the [progressive web app](https://trace.playwright.dev/).
 
 
 Developing Own Scripts
