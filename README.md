@@ -27,18 +27,19 @@ export NODE_PATH=/usr/local/lib/node_modules/
 
 Quickstart
 ----------
-Take a snapshot
+To run `scriptor` you need the permission to execute `docker run`.
+
+Take a snapshot:
 ```
-# on unix, use sudo if you are not in the "docker" group
 scriptor --input "{\"url\":\"https://github.com/webis-de/scriptor\"}" --output-directory output1
 ```
 
-Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/example/snapshot-input) for more configuration options (e.g., configure the [browser](https://github.com/webis-de/scriptor/blob/main/doc/example/snapshot-input/browserContexts/default/browser.json) with [all options of Playwright](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context))
+Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/example/snapshot-input) for more configuration options (e.g., configure the [browser](https://github.com/webis-de/scriptor/blob/main/doc/example/snapshot-input/browserContexts/default/browser.json) with [all options of Playwright](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context)):
 ```
 scriptor --input doc/example/snapshot-input/ --output-directory output2
 ```
 
-Replace the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js) with an own one (see [Developing Own Scripts](#developing-own-scripts)). The 'script' directory must contain a Script.js that exports a class that extends [AbstractScriptorScript](https://github.com/webis-de/scriptor/blob/main/lib/AbstractScriptorScript.js).
+Replace the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js) with an own one (see [Developing Own Scripts](#developing-own-scripts)):
 ```
 scriptor --script-directory path/to/my/own/script --output-directory output3
 ```
@@ -50,12 +51,12 @@ Output Directory Structure
 ```
 output/
 ├─ browserContexts/
-|  └─ default/     # Shares the name of the browser context, see Developing Own Scripts
+|  └─ default/     # Shares the name of the browser context
 |     ├─ userData/    # Browser files (cache, cookies, ...)
 |     ├─ video/       # Recorded videos if --video is set
-|     ├─ warcs/       # Recorded web archive collection with WARCs and indexes, see below
+|     ├─ warcs/       # Recorded web archive collection
 |     ├─ archive.har  # Recorded web archive in HAR format
-|     ├─ browser.json # Browser context options that have been used
+|     ├─ browser.json # Used browser context options
 |     └─ trace.zip    # Playwright trace
 └─ scriptor.log    # Container log
 ```
@@ -65,20 +66,49 @@ The `warcs` directory is created using [pywb](https://github.com/webrecorder/pyw
 
 To view the `trace.zip`, see [the playwright docs](https://playwright.dev/docs/trace-viewer#viewing-the-trace) or just directly load it into the [progressive web app](https://trace.playwright.dev/).
 
-Scriptor uses [Bunyan](https://github.com/trentm/node-bunyan) for logging, which comes with a [tool](https://github.com/trentm/node-bunyan#cli-usage) for filtering and pretty-printing the logs. Once you have it installed (`npm install --global bunyan`), just add `| bunyan` after the scriptor command to pretty-print the logs. Or use it to pretty-print the `scriptor.log`.
+Scriptor uses [Bunyan](https://github.com/trentm/node-bunyan) for logging. The [Bunyan CLI](https://github.com/trentm/node-bunyan#cli-usage) allows to filter and pretty-print the logs.
 
 
 
 Developing Own Scripts
 ----------------------
-TODO
+Create a `Script.js` and extend [AbstractScriptorScript](https://github.com/webis-de/scriptor/blob/main/lib/AbstractScriptorScript.js):
+```
+const { AbstractScriptorScript, files, pages } = require('@webis-de/scriptor');
 
+module.exports = class extends AbstractScriptorScript {
 
-### files.js
-TODO
+  constructor() { super("MyScript", "0.1.0"); } // log script name and version
+  
+  async run(browserContexts, scriptDirectory, inputDirectory, outputDirectory) { }
+}
+```
+The directory that contains your `Script.js` is called the "script directory": use the `--script-directory` option to specify it on the command line and your script's `run` method will be used instead of the one of the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js). The script and input directory are read-only. Everything the script produces should be written to the [output directory](#output-directory-structure).
+
+**Controlling the Browser(s)**
+Each of the `browserContexts` is a Playwright [BrowserContext](https://playwright.dev/docs/api/class-browsercontext) object, roughly corresponding to a browser session. Your script can use the BrowserContext's [newPage](https://playwright.dev/docs/api/class-browsercontext#browser-context-new-page) method to create a new [Page](https://playwright.dev/docs/api/class-page) (like a browser tba)—the object to open, read, and manipulate web pages. [pages.js](#pages-js) adds even more methods to this end.
+
+If the script uses a single browser (the usual case), the `run` method should start with
+```
+const browserContext = browserContexts["default"];
+```
+which gets a browser context [configured](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context) using the `browserContexts/default/browser.json` files in the script and input directory (specified by `--input`) if they exist. The following configuration precedence applies (lowest to highest): defaults < script directory `browser.json` < input directory `browser.json` < `scriptor` command line options (e.g., `--show-browser`). In addition to [Playwright's options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context), the `browserType` option allows to specify which browser to use: "chromium" (default), "firefox", or "webkit".
+
+Place directories inside `browserContexts` to receive correspondingly named browser contexts in `run`'s `browserContexts` parameter. An [output directory](#output-directory-structure) is created for each browser context. Use the static methods in [files.js](https://github.com/webis-de/scriptor/blob/main/lib/files.js) to get the respective context directories in the script code.
+
+**Configuring the Script**
+Most scripts have parameters, which should be specified in a `config.json` in the input directory—or by other options of `--input`. A `config.json` in the script directory can be used to specify defaults, though these could also be specified in the script's code. The recommended way is:
+```
+const defaultScriptOptions = { ... };
+const requiredScriptOptions = [ ... ];
+const scriptOptions = files.readOptions(files.getExisting(
+    "config.json", [ scriptDirectory, inputDirectory ]),
+  defaultScriptOptions, requiredScriptOptions);
+```
 
 
 ### pages.js
+[pages.js](https://github.com/webis-de/scriptor/blob/main/lib/pages.js)
 TODO
 
 #### Snapshots
