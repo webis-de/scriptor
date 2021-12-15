@@ -1,7 +1,7 @@
 {
   "name": "@webis-de/scriptor",
   "version": "0.5.0",
-  "description": "Web user simulation and archiving framework",
+  "description": "Plug-and-play reproducible web analysis",
   "main": "lib/index.js",
   "files": [ "bin", "lib" ],
   "bin": {
