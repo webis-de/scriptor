@@ -46,6 +46,11 @@ Replace the [default script](https://github.com/webis-de/scriptor/blob/main/scri
 scriptor --script-directory path/to/my/own/script --output-directory output3
 ```
 
+Have a look at available features:
+```
+scriptor --help
+```
+
 
 
 Output Directory Structure
@@ -111,8 +116,7 @@ const scriptOptions = files.readOptions(files.getExisting(
 
 
 ### pages.js
-[pages.js](https://github.com/webis-de/scriptor/blob/main/lib/pages.js)
-TODO
+The [pages.js](https://github.com/webis-de/scriptor/blob/main/lib/pages.js) is a collection of functions that query and/or modify a Playwright [page](https://playwright.dev/docs/api/class-page).
 
 #### Snapshots
 TODO
