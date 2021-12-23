@@ -16,7 +16,8 @@ Update in [package.json](https://github.com/webis-de/scriptor/blob/main/package.
 
 Continuous Integration
 ----------------------
-Update version in [package.json](https://github.com/webis-de/scriptor/blob/main/package.json).
+- Check if a new Playwright version exists
+- Update Scriptor version in [package.json](https://github.com/webis-de/scriptor/blob/main/package.json).
 ```
 ./bin/publish.sh
 ```
