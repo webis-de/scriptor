@@ -11,6 +11,7 @@ if [ $(git tag | grep "^v$version$" | wc -l) -ne 0 ];then
   exit 1
 fi
 
+documentation build -f html -o docs --github
 npm i --package-lock-only
 git add -A
 git commit -m "version $version"

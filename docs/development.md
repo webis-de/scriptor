@@ -8,6 +8,11 @@ docker build -t ghcr.io/webis-de/scriptor:dev .
 ```
 Then use `-d dev` when running `scriptor`.
 
+Test documentation output:
+```
+documentation build -f html -o docs/html --github
+```
+
 
 Update Playwright
 -----------------
