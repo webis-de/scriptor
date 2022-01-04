@@ -5,7 +5,6 @@ Plug-and-play reproducible web analysis.
 [![latest version](https://img.shields.io/github/v/tag/webis-de/scriptor?label=latest&sort=semver)](https://github.com/webis-de/scriptor)
 [![npm workflow](https://img.shields.io/github/workflow/status/webis-de/scriptor/Publish%20to%20NPM?label=nodejs)](https://www.npmjs.com/package/@webis-de/scriptor)
 [![docker workflow](https://img.shields.io/github/workflow/status/webis-de/scriptor/Publish%20to%20GitHub%20Packages?label=docker)](https://github.com/webis-de/scriptor/pkgs/container/scriptor)
-[![pages workflow](https://img.shields.io/github/workflow/status/webis-de/scriptor/pages-build-deployment?label=api%20docs)](https://webis.de/scriptor)
 [![license](https://img.shields.io/github/license/webis-de/scriptor)](https://github.com/webis-de/scriptor/blob/main/LICENSE)
 [![playwright version](https://img.shields.io/github/package-json/dependency-version/webis-de/scriptor/dev/playwright)](https://playwright.dev/)
 
@@ -116,11 +115,8 @@ const scriptOptions = files.readOptions(files.getExisting(
 ```
 
 
-### pages.js
-The [pages.js](https://github.com/webis-de/scriptor/blob/main/lib/pages.js) is a collection of functions that query and/or modify a Playwright [page](https://playwright.dev/docs/api/class-page).
-
-#### Snapshots
-TODO
+### Scriptor API
+Scriptor provides several static functions to assist you with manipulating Playwright [pages](https://playwright.dev/docs/api/class-page) or when dealing with the Scriptor file structure. See the [API documentation](https://webis.de/scriptor)
 
 
 ### Chaining
