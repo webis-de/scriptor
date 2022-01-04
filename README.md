@@ -5,6 +5,7 @@ Plug-and-play reproducible web analysis.
 [![latest version](https://img.shields.io/github/v/tag/webis-de/scriptor?label=latest&sort=semver)](https://github.com/webis-de/scriptor)
 [![npm workflow](https://img.shields.io/github/workflow/status/webis-de/scriptor/Publish%20to%20NPM?label=nodejs)](https://www.npmjs.com/package/@webis-de/scriptor)
 [![docker workflow](https://img.shields.io/github/workflow/status/webis-de/scriptor/Publish%20to%20GitHub%20Packages?label=docker)](https://github.com/webis-de/scriptor/pkgs/container/scriptor)
+[![pages workflow](https://img.shields.io/github/workflow/status/webis-de/scriptor/pages-build-deployment?label=api%20docs)](https://webis.de/scriptor)
 [![license](https://img.shields.io/github/license/webis-de/scriptor)](https://github.com/webis-de/scriptor/blob/main/LICENSE)
 [![playwright version](https://img.shields.io/github/package-json/dependency-version/webis-de/scriptor/dev/playwright)](https://playwright.dev/)
 
