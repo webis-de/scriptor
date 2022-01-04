@@ -16,7 +16,7 @@ Then use `-d dev` when running `scriptor`.
 
 ### Documentation
 ```
-documentation build -f html -o docs/ --github --config docs/config.yml
+documentation build -f html -o docs/api/ --github --config docs/api/config.yml
 ```
 
 

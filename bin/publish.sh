@@ -28,7 +28,7 @@ else
 fi
 
 echo "Building documentation"
-documentation build -f html -o docs/ --github --config docs/config.yml
+documentation build -f html -o docs/api --github --config docs/api/config.yml
 
 echo "Updating package lock"
 npm i --package-lock-only
