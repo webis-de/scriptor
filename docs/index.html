@@ -29,11 +29,39 @@
               
                 
                 <li><a
-                  href='#version'
-                  class="">
-                  VERSION
+                  href='#scriptor'
+                  class="h5 bold black caps">
+                  Scriptor
                   
                 </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#abstractscriptorscript'
+                  class=" toggle-sibling">
+                  AbstractScriptorScript
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#abstractscriptorscriptrun'
+                        class='regular pre-open'>
+                        #run
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
                 
                 </li>
               
@@ -110,16 +138,6 @@
                   
                   
                 </div>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#log'
-                  class="">
-                  log
-                  
-                </a>
                 
                 </li>
               
@@ -225,29 +243,21 @@
               
                 
                 <li><a
-                  href='#abstractscriptorscript'
-                  class=" toggle-sibling">
-                  AbstractScriptorScript
-                  <span class='icon'>▸</span>
+                  href='#log'
+                  class="">
+                  log
+                  
                 </a>
                 
-                <div class='toggle-target display-none'>
+                </li>
+              
+                
+                <li><a
+                  href='#version'
+                  class="">
+                  VERSION
                   
-                  
-                    <ul class='list-reset py1-ul pl1'>
-                      <li class='h5'><span>Instance members</span></li>
-                      
-                      <li><a
-                        href='#abstractscriptorscriptrun'
-                        class='regular pre-open'>
-                        #run
-                      </a></li>
-                      
-                    </ul>
-                  
-                  
-                  
-                </div>
+                </a>
                 
                 </li>
               
@@ -261,38 +271,77 @@
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
         
           
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='scriptor' class='mt0'>
+    Scriptor
+  </h2>
+
+  
+    <p>[<a href="https://github.com/webis-de/scriptor">code</a>] [<a href="https://www.npmjs.com/package/@webis-de/scriptor">package</a>]</p>
+
+  
+</section></div>
+          
+        
+          
           <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='version'>
-      VERSION
+    <h3 class='fl m0' id='abstractscriptorscript'>
+      AbstractScriptorScript
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/index.js#L12-L12'>
-      <span>lib/index.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/AbstractScriptorScript.js#L11-L41'>
+      <span>lib/AbstractScriptorScript.js</span>
       </a>
     
   </div>
   
 
-  <p>Current version of Scriptor</p>
+  <p>Abstract base class for Scriptor scripts.</p>
 
-    <div class='pre p1 fill-light mt0'>VERSION</div>
-  
-  
-
-  
-  
-  
-  
+    <div class='pre p1 fill-light mt0'>AbstractScriptorScript</div>
   
   
 
   
+  
+  
+  
+  
+  
 
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Name of the script
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>version</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Version of the script (in
+
+semantic versioning
+:
+"major.minor.patch")
+
+          </div>
+          
+        </div>
+      
+    </div>
   
 
   
@@ -304,6 +353,142 @@
   
 
   
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='abstractscriptorscriptrun'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>run(browserContexts, scriptDirectory, inputDirectory, outputDirectory)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/AbstractScriptorScript.js#L37-L39'>
+      <span>lib/AbstractScriptorScript.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Runs this script.</p>
+<p>See Developing Own Scripts
+in the README.</p>
+
+    <div class='pre p1 fill-light mt0'>run(browserContexts: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, scriptDirectory: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, inputDirectory: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null">Null</a>), outputDirectory: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>browserContexts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    An object containing a Playwright
+BrowserContext for each directory in either the script or input directory's
+contexts directory, with the respective directory name as key; or a
+BrowserContext under 
+<a href="#filesbrowser_context_default">files.BROWSER_CONTEXT_DEFAULT</a>
+
+if no such directory exists
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>scriptDirectory</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The directory that contains the Script.js
+and other run-independent files for the script (read-only)
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>inputDirectory</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null">Null</a>))</code>
+	    The directory that contains the
+run-dependent files for the script (read-only), or 
+null
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>outputDirectory</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The directory to which all output of the
+script run should be written to (read-write)
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Whether the script could be called again with the
+output directory as a new input directory
+
+      
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#filesgetcontextsdirectory">getContextsDirectory</a>
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
 
   
 
@@ -325,7 +510,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/index.js#L20-L20'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/index.js#L20-L20'>
       <span>lib/index.js</span>
       </a>
     
@@ -375,7 +560,7 @@
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L17-L17'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L17-L17'>
       <span>lib/files.js</span>
       </a>
     
@@ -441,7 +626,7 @@ with the name of that directory being the context name.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L25-L25'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L25-L25'>
       <span>lib/files.js</span>
       </a>
     
@@ -504,7 +689,7 @@ with the name of that directory being the context name.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L34-L34'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L34-L34'>
       <span>lib/files.js</span>
       </a>
     
@@ -568,7 +753,7 @@ browser context options used by Playwright.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L41-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L41-L41'>
       <span>lib/files.js</span>
       </a>
     
@@ -631,7 +816,7 @@ browser context options used by Playwright.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L61-L86'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L61-L86'>
       <span>lib/files.js</span>
       </a>
     
@@ -746,7 +931,7 @@ browser context directory with the specified name
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L101-L103'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L101-L103'>
       <span>lib/files.js</span>
       </a>
     
@@ -828,7 +1013,7 @@ that contains the browser context directory
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L115-L117'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L115-L117'>
       <span>lib/files.js</span>
       </a>
     
@@ -919,7 +1104,7 @@ that contains the browser context directory
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L127-L151'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L127-L151'>
       <span>lib/files.js</span>
       </a>
     
@@ -1000,7 +1185,7 @@ browser context directories
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/files.js#L178-L204'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/files.js#L178-L204'>
       <span>lib/files.js</span>
       </a>
     
@@ -1120,74 +1305,12 @@ must be set either in the defaults or the files to not trigger an error
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='log'>
-      log
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/index.js#L30-L30'>
-      <span>lib/index.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>The <a href="https://github.com/trentm/node-bunyan#readme">Bunyan</a> log object
-that Scriptor uses.</p>
-
-    <div class='pre p1 fill-light mt0'>log</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> { log } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;@webis-de/scriptor&quot;</span>);
-log.info({<span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">answer</span>: <span class="hljs-number">42</span>}, <span class="hljs-string">&quot;example.logging&quot;</span>);</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='pages'>
       pages
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/index.js#L36-L36'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/index.js#L36-L36'>
       <span>lib/index.js</span>
       </a>
     
@@ -1237,7 +1360,7 @@ log.info({<span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;ba
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L21-L26'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L21-L26'>
       <span>lib/pages.js</span>
       </a>
     
@@ -1338,7 +1461,7 @@ snapshot output files.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L39-L51'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L39-L51'>
       <span>lib/pages.js</span>
       </a>
     
@@ -1438,7 +1561,7 @@ snapshot output files.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L60-L69'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L60-L69'>
       <span>lib/pages.js</span>
       </a>
     
@@ -1501,7 +1624,7 @@ snapshot output files.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L92-L102'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L92-L102'>
       <span>lib/pages.js</span>
       </a>
     
@@ -1595,7 +1718,7 @@ from top to bottom viewport border</li>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L137-L165'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L137-L165'>
       <span>lib/pages.js</span>
       </a>
     
@@ -1811,7 +1934,7 @@ considered when enlarging the viewport height)
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L175-L177'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L175-L177'>
       <span>lib/pages.js</span>
       </a>
     
@@ -1894,7 +2017,7 @@ considered when enlarging the viewport height)
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L193-L195'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L193-L195'>
       <span>lib/pages.js</span>
       </a>
     
@@ -1986,7 +2109,7 @@ visible on the screen due to overflow.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L207-L209'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L207-L209'>
       <span>lib/pages.js</span>
       </a>
     
@@ -2078,7 +2201,7 @@ visible on the screen due to overflow.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L238-L267'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L238-L267'>
       <span>lib/pages.js</span>
       </a>
     
@@ -2249,7 +2372,7 @@ the respective snapshot function as value
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L280-L289'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L280-L289'>
       <span>lib/pages.js</span>
       </a>
     
@@ -2375,7 +2498,7 @@ the respective snapshot function as value
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L330-L427'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L330-L427'>
       <span>lib/pages.js</span>
       </a>
     
@@ -2546,7 +2669,7 @@ An object that maps CSS attributes to the node's value for the attribute
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L442-L447'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L442-L447'>
       <span>lib/pages.js</span>
       </a>
     
@@ -2652,7 +2775,7 @@ function
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/pages.js#L470-L479'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/pages.js#L470-L479'>
       <span>lib/pages.js</span>
       </a>
     
@@ -2797,58 +2920,30 @@ from top to bottom viewport border</li>
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='abstractscriptorscript'>
-      AbstractScriptorScript
+    <h3 class='fl m0' id='log'>
+      log
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/AbstractScriptorScript.js#L11-L41'>
-      <span>lib/AbstractScriptorScript.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/index.js#L30-L30'>
+      <span>lib/index.js</span>
       </a>
     
   </div>
   
 
-  <p>Abstract base class for Scriptor scripts.</p>
+  <p>The <a href="https://github.com/trentm/node-bunyan#readme">Bunyan</a> log object
+that Scriptor uses.</p>
 
-    <div class='pre p1 fill-light mt0'>AbstractScriptorScript</div>
-  
-  
-
-  
-  
-  
-  
+    <div class='pre p1 fill-light mt0'>log</div>
   
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Name of the script
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>version</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Version of the script (in
-
-semantic versioning
-:
-"major.minor.patch")
-
-          </div>
-          
-        </div>
-      
-    </div>
+  
+  
+  
+  
   
 
   
@@ -2862,125 +2957,12 @@ semantic versioning
   
 
   
-
-  
-    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-    <div class="clearfix">
-  
-    <div class='border-bottom' id='abstractscriptorscriptrun'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>run(browserContexts, scriptDirectory, inputDirectory, outputDirectory)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/745291d721b0ae3ff88123b022b0edf7a2fbf460/lib/AbstractScriptorScript.js#L37-L39'>
-      <span>lib/AbstractScriptorScript.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Runs this script.</p>
-<p>See Developing Own Scripts
-in the README.</p>
-
-    <div class='pre p1 fill-light mt0'>run(browserContexts: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, scriptDirectory: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, inputDirectory: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null">Null</a>), outputDirectory: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>browserContexts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    An object containing a Playwright
-BrowserContext for each directory in either the script or input directory's
-contexts directory, with the respective directory name as key; or a
-BrowserContext under 
-<a href="#filesbrowser_context_default">files.BROWSER_CONTEXT_DEFAULT</a>
-
-if no such directory exists
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>scriptDirectory</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The directory that contains the Script.js
-and other run-independent files for the script (read-only)
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>inputDirectory</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null">Null</a>))</code>
-	    The directory that contains the
-run-dependent files for the script (read-only), or 
-null
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>outputDirectory</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The directory to which all output of the
-script run should be written to (read-write)
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-        Whether the script could be called again with the
-output directory as a new input directory
-
-      
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Related</div>
+    <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-        <a href="#filesgetcontextsdirectory">getContextsDirectory</a>
-
-      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> { log } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;@webis-de/scriptor&quot;</span>);
+log.info({<span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">answer</span>: <span class="hljs-number">42</span>}, <span class="hljs-string">&quot;example.logging&quot;</span>);</pre>
     
-  
-
-  
-
   
 
   
@@ -2992,10 +2974,52 @@ output directory as a new input directory
   
 </section>
 
-      </div>
-    </div>
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
   
-</div>
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='version'>
+      VERSION
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/webis-de/scriptor/blob/9cbfeee0655bbc12980d0558335d1abfd720f9ea/lib/index.js#L12-L12'>
+      <span>lib/index.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Current version of Scriptor</p>
+
+    <div class='pre p1 fill-light mt0'>VERSION</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 

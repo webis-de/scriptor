@@ -1,0 +1,8 @@
+toc:
+  - name: Scriptor
+    description: |
+      [[code](https://github.com/webis-de/scriptor)] [[package](https://www.npmjs.com/package/@webis-de/scriptor)]
+  - AbstractScriptorScript
+  - files
+  - pages
+  - log

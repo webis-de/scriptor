@@ -3,14 +3,20 @@ Webis Scriptor Development
 
 Local Development
 -----------------
+Always use the `development` branch!
+```
+git checkout development
+```
+
+### Docker Image
 ```
 docker build -t ghcr.io/webis-de/scriptor:dev .
 ```
 Then use `-d dev` when running `scriptor`.
 
-Test documentation output:
+### Documentation
 ```
-documentation build -f html -o docs/html --github
+documentation build -f html -o docs/ --github --config docs/config.yml
 ```
 
 
