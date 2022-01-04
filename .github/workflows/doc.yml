@@ -1,0 +1,22 @@
+name: Generate Documentation
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: codevise/documentation-js-action@v1.3.1
+        with:
+          input: .
+          output: ./doc/html
+          github: true
+
