@@ -36,9 +36,9 @@ Take a snapshot:
 scriptor --input "{\"url\":\"https://github.com/webis-de/scriptor\"}" --output-directory output1
 ```
 
-Use an [input directory](https://github.com/webis-de/scriptor/tree/main/doc/example/snapshot-input) for more configuration options (e.g., configure the [browser](https://github.com/webis-de/scriptor/blob/main/doc/example/snapshot-input/browserContexts/default/browser.json) with [all options of Playwright](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context)):
+Use an [input directory](https://github.com/webis-de/scriptor/tree/main/docs/example/snapshot-input) for more configuration options (e.g., configure the [browser](https://github.com/webis-de/scriptor/blob/main/docs/example/snapshot-input/browserContexts/default/browser.json) with [all options of Playwright](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context)):
 ```
-scriptor --input doc/example/snapshot-input/ --output-directory output2
+scriptor --input docs/example/snapshot-input/ --output-directory output2
 ```
 
 Replace the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js) with an own one (see [Developing Own Scripts](#developing-own-scripts)):

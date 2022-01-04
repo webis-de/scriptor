@@ -19,5 +19,5 @@ jobs:
         uses: codevise/documentation-js-action@v1.3.1
         with:
           input: .
-          output: ./doc/html
+          output: ./docs
           github: true
