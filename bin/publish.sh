@@ -32,18 +32,19 @@ documentation build -f html -o docs/api --github --config docs/api/config.yml
 
 echo "Updating package lock"
 npm i --package-lock-only
+echo "Committing"
+git add -A
+git commit -m "version $version"
 
 echo "Merging into main branch"
 git checkout main
 git merge development
 
-echo "Committing"
-git add -A
-git commit -m "version $version"
+echo "Pushing"
 git push
 git tag "v$version"
 git push origin "v$version"
 
-echo "Creating development branch for new version"
-git checkout -b development
+echo "Switching back to development branch"
+git checkout development
 
