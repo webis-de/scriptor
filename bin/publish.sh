@@ -55,4 +55,5 @@ git push origin "v$version"
 
 echo "Switching back to development branch"
 git checkout development
+git push
 
