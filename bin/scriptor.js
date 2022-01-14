@@ -11,5 +11,10 @@ const log = require('../lib/log.js');
 ////////////////////////////////////////////////////////////////////////////////
 
 const options = cli.parse();
-docker.run(options);
+docker
+  .run(options)
+  .catch(error => {
+    log.fatal(error);
+    console.log("\nERROR: " + error.message);
+  });
 
