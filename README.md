@@ -116,7 +116,7 @@ const scriptOptions = files.readOptions(files.getExisting(
 
 
 ### Scriptor API
-Scriptor provides several static functions to assist you with manipulating Playwright [pages](https://playwright.dev/docs/api/class-page) or when dealing with the Scriptor file structure. See the [API documentation](https://webis.de/scriptor/api/)
+Scriptor provides several static functions to assist you with manipulating Playwright [pages](https://playwright.dev/docs/api/class-page) or when dealing with the Scriptor directory structure. See the [API documentation](https://webis.de/scriptor/api/)
 
 
 ### Chaining
