@@ -24,7 +24,15 @@ if [ "$localPlaywright" == "$latestPlaywright" ];then
   echo "Playwright is up to date: $localPlaywright"
 else
   echo "Playwright should be updated to: $latestPlaywright"
-  # exit 1
+  echo "You have to update in the package.json and the Dockerfile"
+  echo "Continue anyway? [n/y]"
+  read continueAnyway
+  if [ "$continueAnyway" == "y" ];then
+    echo "Ok, continue anyway"
+  else
+    echo "Ok, aborting"
+    exit 0
+  fi
 fi
 
 echo "Building documentation"
