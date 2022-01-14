@@ -120,7 +120,14 @@ Scriptor provides several static functions to assist you with manipulating Playw
 
 
 ### Chaining
-TODO
+Scriptor is designed to simplify the creation of "checkpoints", from which Scriptor could continue after a crash, or just to serve as an intermediate archive of what has been seen so far. By default, Scriptor stores the browser state (for each browser context) in the output directory so that it is loaded automatically when that output directory is used as the input directory for a new run. As a developer, you just have to take care that you store (updated, if necessary) all the input files for your script at the same location in the output directory.
+
+If a script allows such "chaining" of runs, its [run](https://webis.de/scriptor/api/#abstractscriptorscriptrun)-method should return `true`, like the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js). Note that a script may return `true` in some cases and `false` in others.
+
+The Scriptor program allows then to automate such chaining by the `--chain [config]` option. Importantly, this will cause the usual output directory structure to be created *within* the provided output directory. The `start`-parameter can then be used to continue from a previous run/chain in the same output directory. Specifically, the `config` is a JSON object with these properties (all optional):
+- pattern: name of the output directoy within `--output-directory` for each run, with "%0Xd" replaced by the X-digit run number (with leading zeroes; default: "run%06d")
+- start: number of the first run (default: 1)
+- max: maximum number of runs (default: none)
 
 
 
