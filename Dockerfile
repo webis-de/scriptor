@@ -5,6 +5,11 @@ ARG playwright=v1.17.2-focal
 # Playwright Dockerfile: https://github.com/microsoft/playwright/blob/master/utils/docker/Dockerfile.focal
 FROM mcr.microsoft.com/playwright:${playwright}
 
+# Installing x11vnc for --show-browser
+RUN apt update && \
+  DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install -y xvfb x11vnc
+ENV DISPLAY=:42
+
 # Installing third-party
 RUN pip3 install pywb
 
