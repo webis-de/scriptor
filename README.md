@@ -71,7 +71,7 @@ Scripts usually place additional data into the `output` directory. For example, 
 
 The `warcs` directory is created using [pywb](https://github.com/webrecorder/pywb) and thus follows its [directory structure](https://pywb.readthedocs.io/en/latest/manual/configuring.html#directory-structure). Note that efforts exist to [standardize this structure](https://github.com/webrecorder/wacz-spec): and they are looking for feedback!
 
-To view the `trace.zip`, see [the playwright docs](https://playwright.dev/docs/trace-viewer#viewing-the-trace) or just directly load it into the [progressive web app](https://trace.playwright.dev/).
+To view the `trace.zip`, see [the Playwright docs](https://playwright.dev/docs/trace-viewer#viewing-the-trace) or just directly load it into the [progressive web app](https://trace.playwright.dev/).
 
 Scriptor uses [Bunyan](https://github.com/trentm/node-bunyan) for logging. The [Bunyan CLI](https://github.com/trentm/node-bunyan#cli-usage) allows to filter and pretty-print the logs.
 
