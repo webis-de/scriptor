@@ -15,9 +15,6 @@ const log = require('../lib/log.js');
 const dockerEntrypoint = true;
 const options = cli.parse(dockerEntrypoint);
 
-// TODO: Xvfb :20 -screen 0 1366x768x16 &
-// TODO: x11vnc -passwd TestVNC -display :20 -N -forever &
-
 try {
   const scriptDirectory = cli.getScriptDirectory(options);
   const inputDirectory = cli.getInputDirectory(options, dockerEntrypoint);
