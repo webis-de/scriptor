@@ -65,7 +65,8 @@ output/
 |     ├─ archive.har  # Recorded web archive in HAR format
 |     ├─ browser.json # Used browser context options
 |     └─ trace.zip    # Playwright trace
-└─ scriptor.log    # Container log
+└─ logs/
+   └─ scriptor.log    # Container log
 ```
 Scripts usually place additional data into the `output` directory. For example, the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js) adds a [snapshot](#snapshots).
 
@@ -129,6 +130,11 @@ The Scriptor program allows then to automate such chaining by the `--chain [conf
 - start: number of the first run (default: 1)
 - max: maximum number of runs (default: none)
 
+
+### Manual Browser Interaction
+Scriptor allows for manual interactions with the browser, which can be useful to set cookies or similar. Specifically, using the `--show-browser` option allows scripts to use the [page.pause](https://playwright.dev/docs/api/class-page#page-pause)-method, which will pause the script until the user hits the `resume` button in the dialog that pops up. The same dialog also allows to record interactions as Javascript code. For such simple use cases, the [Manual script](https://github.com/webis-de/scriptor/blob/main/scripts/Manual-0.1.0/Script.js) can be used: it contains (in essence) only the call to `pause`.
+
+Since Scriptor runs in a container, it does not directly open the browser window. Instead, it runs a VNC server inside the container that you can connect to with a VNC client at `localhost:5942`. The config options of `--show-browser` allow to change the width and height of the virtual display, change the port, allow remote access, and set a password. See `--help`.
 
 
 Running on Archives (Replay)
