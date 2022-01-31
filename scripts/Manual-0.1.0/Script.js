@@ -6,8 +6,6 @@ const { AbstractScriptorScript, files, pages, log } = require('@webis-de/scripto
 const NAME = "Manual";
 const VERSION = "0.1.0";
 
-const SCRIPT_OPTION_STAY_HEADED = "stayHeaded";
-
 module.exports = class extends AbstractScriptorScript {
 
   constructor() {
@@ -19,7 +17,6 @@ module.exports = class extends AbstractScriptorScript {
 
     // Script options
     const defaultScriptOptions = { };
-    defaultScriptOptions[SCRIPT_OPTION_STAY_HEADED] = false;
     const requiredScriptOptions = [ ];
     const scriptOptions = files.readOptions(files.getExisting(
       files.SCRIPT_OPTIONS_FILE_NAME, [ scriptDirectory, inputDirectory ]),
