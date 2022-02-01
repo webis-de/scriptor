@@ -134,7 +134,7 @@ The Scriptor program allows then to automate such chaining by the `--chain [conf
 ### Manual Browser Interaction
 Scriptor allows for manual interactions with the browser, which can be useful to set cookies or similar. Specifically, using the `--show-browser` option allows scripts to use the [page.pause](https://playwright.dev/docs/api/class-page#page-pause)-method, which will pause the script until the user hits the `resume` button in the dialog that pops up. The same dialog also allows to record interactions as Javascript code. For such simple use cases, the [Manual script](https://github.com/webis-de/scriptor/blob/development/scripts/Manual-0.1.0/Script.js) can be used: it contains (in essence) only the call to `pause`.
 
-Since Scriptor runs in a container, it does not directly open the browser window. Instead, it runs a VNC server inside the container that you can connect to with a VNC client at `localhost:5942`. The config options of `--show-browser` allow to change the width and height of the virtual display, change the port, allow remote access, and set a password. See `--help`.
+Since Scriptor runs in a container, it can not directly open the browser window on your machine. Instead, it runs a [VNC server](https://en.wikipedia.org/wiki/Virtual_Network_Computing) inside the container that you can connect to with a VNC client at `localhost:5942` to see the browser window. Depending on your operating system, you might already have a VNC client installed. The config options of `--show-browser` allow to change the width and height of the virtual display, change the port, allow remote access, and set a password. See `--help`.
 
 
 Running on Archives (Replay)
