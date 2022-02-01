@@ -136,6 +136,8 @@ Scriptor allows for manual interactions with the browser, which can be useful to
 
 Since Scriptor runs in a container, it can not directly open the browser window on your machine. Instead, it runs a [VNC server](https://en.wikipedia.org/wiki/Virtual_Network_Computing) inside the container that you can connect to with a VNC client at `localhost:5942` to see the browser window. Depending on your operating system, you might already have a VNC client installed. The config options of `--show-browser` allow to change the width and height of the virtual display, change the port, allow remote access, and set a password. See `--help`.
 
+If you want to run Scriptor on one machine and interact with it from another machine, make sure to read  [how to use x11vnc](https://github.com/LibVNC/x11vnc#how-to-use-x11vnc) (Scriptor uses x11vnc as its VNC server), especially the sections on how to encrypt your traffic. By default, however, the Scriptor docker container is configured to accept only connections from the machine it is started on.
+
 
 Running on Archives (Replay)
 ----------------------------
