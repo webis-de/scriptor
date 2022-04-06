@@ -1,6 +1,6 @@
 {
   "name": "@webis-de/scriptor",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Plug-and-play reproducible web analysis",
   "main": "lib/index.js",
   "files": [ "bin", "lib" ],
