@@ -11,7 +11,9 @@ RUN apt update && \
 ENV DISPLAY=:42
 
 # Installing third-party
-RUN pip3 install pywb
+RUN pip3 install \
+  pywb \
+  werkzeug==2.0.3
 
 # Directory structure (with default script)
 RUN mkdir /scriptor /output
