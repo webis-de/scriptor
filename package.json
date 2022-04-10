@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "bunyan": "^1.8.15",
+    "chmodr": "^1.2.0",
     "commander": "^8.3.0",
+    "folder-hash": "^4.0.2",
     "fs-extra": "^10.0.0"
   },
   "devDependencies": {
