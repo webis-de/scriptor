@@ -158,3 +158,6 @@ docker run -it --rm \
   - The `<input-directory>` line can be omitted to not set `--input` or when the config is set by `--input "{...}"` in the `<parameters>`
 - `<parameters>` are additional options; see `docker run -it --rm ghcr.io/webis-de/scriptor:latest --help`
 
+**Chaining**
+[Chaining](#chaining) can also be used without NodeJS. However, the Docker container does exit after a single run (by design). Use the same command to continue the chain.
+

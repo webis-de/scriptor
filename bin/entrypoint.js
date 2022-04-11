@@ -14,11 +14,12 @@ const log = require('../lib/log.js');
 
 const dockerEntrypoint = true;
 const options = cli.parse(dockerEntrypoint);
+log.info({ options: options }, "entrypoint");
 
 try {
   const scriptDirectory = cli.getScriptDirectory(options);
-  const inputDirectory = cli.getInputDirectory(options, dockerEntrypoint);
   const outputDirectory = cli.getOutputDirectory(options);
+  const inputDirectory = cli.getInputDirectory(options, dockerEntrypoint);
   const runOptions = cli.getRunOptions(options);
 
   scripts
