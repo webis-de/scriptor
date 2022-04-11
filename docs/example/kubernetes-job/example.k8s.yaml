@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: 'scriptor-chain-test'
+spec:
+  completions: 5
+  parallelism: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: 'scriptor-run'
+        image: 'ghcr.io/webis-de/scriptor:0.9.0'
+        command:
+        - "./bin/entrypoint.js"
+        - "--input"
+        - "{\"url\":\"https://github.com/webis-de/scriptor\"}"
+        - "--overwrite-output"
+        - "--chain"
+        volumeMounts:
+        - mountPath: /output
+          name: data
+      volumes:
+      - name: data
+        ...
+
