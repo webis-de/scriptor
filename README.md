@@ -65,8 +65,10 @@ output/
 |     ├─ archive.har  # Recorded web archive in HAR format
 |     ├─ browser.json # Used browser context options
 |     └─ trace.zip    # Playwright trace
+├─ id.txt         # Hash of the directory to identify it
+├─ input-id.txt   # Hash of the input directory (if any)
 └─ logs/
-   └─ scriptor.log    # Container log
+   └─ scriptor.log  # Container log
 ```
 Scripts usually place additional data into the `output` directory. For example, the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js) adds a [snapshot](#snapshots).
 
@@ -115,20 +117,19 @@ const scriptOptions = files.readOptions(files.getExisting(
   defaultScriptOptions, requiredScriptOptions);
 ```
 
+**Return Value and Chaining**
+If a script allows to continue from its output with the same or a different script (see "[chaining](#chaining)"), its [run](https://webis.de/scriptor/api/#abstractscriptorscriptrun)-method should return `true`, like the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js). By default, Scriptor stores the browser state (for each browser context) in the output directory so that it is loaded automatically when that output directory is used as the input directory for a new run. As a developer, you just have to take care that you store (updated, if necessary) all the input files for your script at the same location in the output directory. Chaining is intended to create "checkpoints" from which to continue after a crash or to serve as intermediate archives. Note that a script may return `true` in some cases and `false` in others.
 
-### Scriptor API
+**Scriptor API**
 Scriptor provides several static functions to assist you with manipulating Playwright [pages](https://playwright.dev/docs/api/class-page) or when dealing with the Scriptor directory structure. See the [API documentation](https://webis.de/scriptor/api/)
 
 
+
+Special Use Cases
+-----------------
+
 ### Chaining
-Scriptor is designed to simplify the creation of "checkpoints", from which Scriptor could continue after a crash, or just to serve as an intermediate archive of what has been seen so far. By default, Scriptor stores the browser state (for each browser context) in the output directory so that it is loaded automatically when that output directory is used as the input directory for a new run. As a developer, you just have to take care that you store (updated, if necessary) all the input files for your script at the same location in the output directory.
-
-If a script allows such "chaining" of runs, its [run](https://webis.de/scriptor/api/#abstractscriptorscriptrun)-method should return `true`, like the [default script](https://github.com/webis-de/scriptor/blob/main/scripts/Snapshot-0.1.0/Script.js). Note that a script may return `true` in some cases and `false` in others.
-
-The Scriptor program allows then to automate such chaining by the `--chain [config]` option. Importantly, this will cause the usual output directory structure to be created *within* the provided output directory. The `start`-parameter can then be used to continue from a previous run/chain in the same output directory. Specifically, the `config` is a JSON object with these properties (all optional):
-- pattern: name of the output directoy within `--output-directory` for each run, with "%0Xd" replaced by the X-digit run number (with leading zeroes; default: "run%06d")
-- start: number of the first run (default: 1)
-- max: maximum number of runs (default: none)
+Usually, the output directory of Scriptor runs can serve as the input directory for a next run (as identified by the script's return value; see [developing own scripts](#developing-own-scripts)). To automate such chaining, use `--chain [name]` to create the series of output directories within `--output-directory`. A JSON-file in the `--output-directory` (identified by `name`) will be continuously updated to point the last successful run and read on start-up, so that you can execute the same `scriptor` command to continue from the last successful run if the chain aborted for some reason.
 
 
 ### Manual Browser Interaction
@@ -139,15 +140,12 @@ Since Scriptor runs in a container, it can not directly open the browser window 
 If you want to run Scriptor on one machine and interact with it from another machine, make sure to read  [how to use x11vnc](https://github.com/LibVNC/x11vnc#how-to-use-x11vnc) (Scriptor uses x11vnc as its VNC server), especially the sections on how to encrypt your traffic. By default, however, the Scriptor docker container is configured to accept only connections from the machine it is started on.
 
 
-Running on Archives (Replay)
-----------------------------
+### Running on Archives (Replay)
 TODO
 
 
-
-Running without NodeJS
-----------------------
-At the cost of reduced convenience (chaining, timeout, nicer interface), you can run scriptor with only a [Docker](https://docs.docker.com/get-docker/) installation:
+### Running without NodeJS
+At the cost of reduced convenience (timeout, nicer interface), you can run Scriptor with only a [Docker](https://docs.docker.com/get-docker/) installation:
 ```
 docker run -it --rm \
   --volume <script-directory>:/script:ro \
