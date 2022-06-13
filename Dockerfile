@@ -1,4 +1,4 @@
-ARG playwright=v1.20.2-focal
+ARG playwright=v1.22.2-focal
 
 # Playwright Docker documentation: https://playwright.dev/docs/docker/
 # Playwright tags: https://mcr.microsoft.com/v2/playwright/tags/list
@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/playwright:${playwright}
 
 # Installing x11vnc for --show-browser
 RUN apt update && \
-  DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install -y xvfb x11vnc lwm
+  DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install -y xvfb x11vnc lwm python3-pip
 ENV DISPLAY=:42
 
 # Installing third-party
