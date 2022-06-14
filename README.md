@@ -11,7 +11,6 @@ Plug-and-play reproducible web analysis.
 Scriptor runs [your web analyses](#developing-own-scripts) on rendered web pages in an up-to-date browser. It owes much of its power to the [Playwright](https://playwright.dev/) browser automation library, but integrates [pywb](https://github.com/webrecorder/pywb)'s [archiving](#output-directory-structure) and [replay](#running-on-archives-replay) capabilities for provenance and reproducibility. Use cases are as diverse as high-fidelity web archiving, content extraction, and web user simulation.
 
 
-
 Installation
 ------------
 Make sure you have both [Docker](https://docs.docker.com/get-docker/) and a recent [NodeJS](https://nodejs.dev/learn/how-to-install-nodejs) installation. If you do not want to install NodeJS, you can also [run the Docker container directly](#running-without-nodejs).
@@ -24,7 +23,6 @@ npm install --global
 # if scriptor can not be found, set the node path (adjust to your system):
 export NODE_PATH=/usr/local/lib/node_modules/
 ```
-
 
 
 Quickstart
@@ -52,7 +50,6 @@ scriptor --help
 ```
 
 
-
 Output Directory Structure
 --------------------------
 ```
@@ -78,6 +75,10 @@ To view the `trace.zip`, see [the Playwright docs](https://playwright.dev/docs/t
 
 Scriptor uses [Bunyan](https://github.com/trentm/node-bunyan) for logging. The [Bunyan CLI](https://github.com/trentm/node-bunyan#cli-usage) allows to filter and pretty-print the logs.
 
+
+Running on Archives (Replay)
+----------------------------
+Scriptor can be configured to use resources from web archives instead of the live web. Use `--replay` to restrict to resources contained in the WARC files of the input or script directory. Use `--replay rw` to use these resources, but allow to fall back to the live web. Use `--warc-input <warc-file-or-directory>` to include resources in the specified file (or all files in a specified directory).
 
 
 Developing Own Scripts
@@ -124,19 +125,13 @@ If a script allows to continue from its output with the same or a different scri
 Scriptor provides several static functions to assist you with manipulating Playwright [pages](https://playwright.dev/docs/api/class-page) or when dealing with the Scriptor directory structure. See the [API documentation](https://webis.de/scriptor/api/)
 
 
-
-Special Use Cases
------------------
-
-### Running on Archives (Replay)
-Scriptor can be configured to use resources from web archives instead of the live web. Use `--replay` to restrict to resources contained in the WARC files of the input or script directory. Use `--replay rw` to use these resources, but allow to fall back to the live web. Use `--warc-input <warc-file-or-directory>` to include resources in the specified file (or all files in a specified directory).
-
-
-### Chaining
+Chaining
+--------
 Usually, the output directory of Scriptor runs can serve as the input directory for a next run (as identified by the script's return value; see [developing own scripts](#developing-own-scripts)). To automate such chaining, use `--chain [name]` to create the series of output directories within `--output-directory`. A JSON-file in the `--output-directory` (identified by `name`) will be continuously updated to point the last successful run and read on start-up, so that you can execute the same `scriptor` command to continue from the last successful run if the chain aborted for some reason.
 
 
-### Manual Browser Interaction
+Manual Browser Interaction
+--------------------------
 Scriptor allows for manual interactions with the browser, which can be useful to set cookies or similar. Specifically, using the `--show-browser` option allows scripts to use the [page.pause](https://playwright.dev/docs/api/class-page#page-pause)-method, which will pause the script until the user hits the `resume` button in the dialog that pops up. The same dialog also allows to record interactions as Javascript code. For such simple use cases, the [Manual script](https://github.com/webis-de/scriptor/blob/development/scripts/Manual-0.1.0/Script.js) can be used: it contains (in essence) only the call to `pause`.
 
 Since Scriptor runs in a container, it can not directly open the browser window on your machine. Instead, it runs a [VNC server](https://en.wikipedia.org/wiki/Virtual_Network_Computing) inside the container that you can connect to with a VNC client at `localhost:5942` to see the browser window. Depending on your operating system, you might already have a VNC client installed. If not, [VNC Viewer](https://www.realvnc.com/de/connect/download/viewer/) is available for all major operating systems. The config options of `--show-browser` allow to change the width and height of the virtual display, change the port, allow remote access, and set a password. See `--help`.
@@ -144,7 +139,8 @@ Since Scriptor runs in a container, it can not directly open the browser window 
 If you want to run Scriptor on one machine and interact with it from another machine, make sure to read  [how to use x11vnc](https://github.com/LibVNC/x11vnc#how-to-use-x11vnc) (Scriptor uses x11vnc as its VNC server), especially the sections on how to encrypt your traffic. By default, however, the Scriptor docker container is configured to accept only connections from the machine it is started on.
 
 
-### Running without NodeJS
+Running without NodeJS
+----------------------
 At the cost of reduced convenience (timeout, nicer interface), you can run Scriptor with only a [Docker](https://docs.docker.com/get-docker/) installation:
 ```
 docker run -it --rm \
@@ -158,6 +154,5 @@ docker run -it --rm \
   - The `<input-directory>` line can be omitted to not set `--input` or when the config is set by `--input "{...}"` in the `<parameters>`
 - `<parameters>` are additional options; see `docker run -it --rm ghcr.io/webis-de/scriptor:latest --help`
 
-**Chaining**
 [Chaining](#chaining) can also be used without NodeJS. However, the Docker container does exit after a single run (by design). Use the same command to continue the chain.
 
