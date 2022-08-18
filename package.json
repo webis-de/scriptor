@@ -1,6 +1,6 @@
 {
   "name": "@webis-de/scriptor",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Plug-and-play reproducible web analysis",
   "main": "lib/index.js",
   "files": [ "bin", "lib" ],
@@ -19,7 +19,7 @@
     "fs-extra": "^10.0.0"
   },
   "devDependencies": {
-    "playwright": "1.22.2"
+    "playwright": "1.25.0"
   },
   "keywords": [
     "browser",
