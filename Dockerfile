@@ -17,7 +17,7 @@ RUN pip3 install \
 
 # Directory structure (with default script)
 RUN mkdir /scriptor /output
-ENV NODE_PATH=/usr/lib/node_modules:/scriptor/node_modules
+ENV NODE_PATH=/usr/lib/node_modules:/scriptor/node_modules:/script/node_modules
 COPY scripts/Snapshot /script
 
 # Installing this package
