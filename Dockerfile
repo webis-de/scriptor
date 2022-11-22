@@ -12,6 +12,7 @@ ENV DISPLAY=:42
 
 # Installing third-party
 RUN pip3 install \
+  pysocks \
   pywb \
   werkzeug==2.0.3
 
