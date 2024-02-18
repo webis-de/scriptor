@@ -1,4 +1,4 @@
-ARG playwright=v1.27.1-jammy
+ARG playwright=v1.41.2-jammy
 
 # Playwright Docker documentation: https://playwright.dev/docs/docker/
 # Playwright tags: https://mcr.microsoft.com/v2/playwright/tags/list
