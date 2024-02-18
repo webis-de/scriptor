@@ -5,8 +5,8 @@ Webis Scriptor
 Plug-and-play reproducible web analysis.
 
 [![latest version](https://img.shields.io/github/v/tag/webis-de/scriptor?label=latest&sort=semver)](https://github.com/webis-de/scriptor)
-[![npm workflow](https://img.shields.io/github/actions/workflow/status/webis-de/scriptor/npm.yml?branch=main&label=nodejs)](https://www.npmjs.com/package/@webis-de/scriptor)
-[![docker workflow](https://img.shields.io/github/actions/workflow/status/webis-de/scriptor/ghcr.yml?branch=main&label=docker)](https://github.com/webis-de/scriptor/pkgs/container/scriptor)
+[![npm workflow](https://img.shields.io/github/actions/workflow/status/webis-de/scriptor/npm.yml?label=nodejs)](https://www.npmjs.com/package/@webis-de/scriptor)
+[![docker workflow](https://img.shields.io/github/actions/workflow/status/webis-de/scriptor/ghcr.yml?label=docker)](https://github.com/webis-de/scriptor/pkgs/container/scriptor)
 [![license](https://img.shields.io/github/license/webis-de/scriptor)](https://github.com/webis-de/scriptor/blob/main/LICENSE)
 [![playwright version](https://img.shields.io/github/package-json/dependency-version/webis-de/scriptor/dev/playwright)](https://playwright.dev/)
 
